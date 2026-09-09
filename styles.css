@@ -23,6 +23,10 @@ header{
     }
 }
 
+h4{
+    margin: 0;
+}
+
 .hero{
     margin: 10vw;
     display: flex;
@@ -50,6 +54,144 @@ header{
 
 .secondary{
     background-color: #3A506B;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Línea vertical central */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #6FFFE9;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+/* Elemento individual de la línea de tiempo */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* Posicionar elementos a la izquierda y derecha */
+.timeline-item.left {
+    right: 8%;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+/* Círculos indicadores en la línea central */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: #3A506B;
+    top: 25px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item.right::after {
+    left: -10px;
+}
+
+/* Contenido de la tarjeta */
+.timeline-content {
+    padding: 25px;
+    background-color: #3A506B;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    color: white;
+}
+
+.timeline-content .date {
+    display: inline-block;
+    background-color: #0B132B;
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.timeline-content h2 {
+    font-size: 1.4rem;
+    color: #6FFFE9;
+    margin-bottom: 10px;
+}
+
+.timeline-content > p {
+    font-size: 0.95rem;
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* Estilos para las subdivisiones (Proyectos) */
+.subdivisions {
+    margin-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 12px;
+}
+
+.sub-item {
+    background-color: #1C2541;
+    border-left: 3px solid #5BC0BE;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 0 4px 4px 0;
+}
+
+.sub-item h4 {
+    font-size: 0.95rem;
+    color: #5BC0BE;
+    margin-bottom: 3px;
+}
+
+.sub-item p {
+    font-size: 0.85rem;
+    color: #fff;
+    margin: 0;
+}
+
+/* --- Diseño Responsivo para Celulares y Tablets --- */
+@media screen and (max-width: 768px) {
+    /* Mover la línea vertical al borde izquierdo */
+    .timeline::after {
+        left: 31px;
+    }
+
+    /* Hacer que todas las tarjetas ocupen el ancho completo y se alineen a la derecha de la línea */
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item.right {
+        left: 0%;
+    }
+
+    /* Mover los círculos al borde izquierdo */
+    .timeline-item.left::after, 
+    .timeline-item.right::after {
+        left: 21px;
+    }
 }
 
 .profesional-experience{
